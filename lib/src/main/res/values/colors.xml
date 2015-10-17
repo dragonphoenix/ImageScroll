@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_primary">#afd7ed</color>
+    <color name="color_primary_dark">#5ca7ba</color>
+    <color name="text_color_primary">#ff425d</color>
+    <color name="window_background">#8ac7ede9</color>
+
+    <color name="indicator_selected">#FF33B5E5</color>
+    <color name="indicator_unselected">#FFBBBBBB</color>
+    <color name="indicator_backgroup">#00BBBBBB</color>
+</resources>
