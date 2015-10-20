@@ -170,13 +170,12 @@ public class IndicatorView extends View implements Indicator, View.OnTouchListen
     }
 
     private void drawIndicator(Canvas canvas, int count) {
-        int height, paddingLeft, paddingRight;
+        int paddingLeft, paddingRight;
         float paddingBetween;
         float dX, dY;
         float start = 0;
         float radius, padding;
 
-        height = getHeight();
         paddingLeft = getPaddingLeft();
         paddingRight = getPaddingRight();
         paddingBetween = calDistance(paddingLeft, paddingRight, count);
@@ -192,7 +191,7 @@ public class IndicatorView extends View implements Indicator, View.OnTouchListen
         }
 
         mIndicatorPaint.setColor(Color.BLUE);
-        dY = height / 2.0f;
+        dY = getPaddingTop() + mIndicatorWidth / 2;
         for (int i=0; i<count; i++) {
             dX = start + (mIndicatorWidth + paddingBetween) * i;
             drawIndicatorGraphic(canvas, dX, dY, radius);
@@ -231,7 +230,6 @@ public class IndicatorView extends View implements Indicator, View.OnTouchListen
 
     private int measureHeight(int measureSpec){
         int result;
-        int screenWidth = getScreenWidth();
         int specMode = MeasureSpec.getMode(measureSpec);
         int specSize = MeasureSpec.getSize(measureSpec);
 
@@ -241,19 +239,6 @@ public class IndicatorView extends View implements Indicator, View.OnTouchListen
             result = (int)mIndicatorWidth + getPaddingTop() + getPaddingBottom();
             if (specMode == MeasureSpec.AT_MOST){
                 result = Math.min(specSize, result);
-                if (mIndicatorType == LINE){
-                    result = (int) (mIndicatorHeight * 6);
-                } else {
-                    result = Math.max(result, screenWidth);
-                    int temp = (int) calPerfectHeight(result);
-
-                    if (screenWidth != result){
-                        result = temp + 20;
-                    } else {
-                        result = temp;
-                    }
-
-                }
             }
         }
 

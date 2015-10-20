@@ -12,5 +12,10 @@
     <com.dragon.lib.IndicatorView
         android:id="@+id/indicatorView"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"/>
+        android:layout_alignBottom="@id/viewPager"
+        android:paddingBottom="10dp"
+        android:background="#4400ff00"
+        android:layout_width="match_parent"
+        app:indicatorType="line"
+        app:indicatorWidth="20dp"/>
 </RelativeLayout>
